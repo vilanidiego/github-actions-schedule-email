@@ -10,6 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Scheduled Run
+        run: echo "Scheduled workflow triggered at $(date)"
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
