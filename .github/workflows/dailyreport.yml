@@ -3,7 +3,7 @@ name: daily-report
 on:
   schedule:
     #- cron: '*/5 * * * *'
-    - cron: '5,10,15,20,25,30,35,40,45,50,55,0 * * * *'
+    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Debug Scheduled Run
-        run: echo "Scheduled workflow triggered at $(date)"
+        run: |
+          echo "Scheduled workflow triggered at $(date)"
+          echo "GitHub run ID: $GITHUB_RUN_ID"
+          echo "GitHub trigger event: $GITHUB_EVENT_NAME"
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
